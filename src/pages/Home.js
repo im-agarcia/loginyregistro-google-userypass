@@ -2,7 +2,7 @@ import React from "react";
 import { auth } from "../firebase/config";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { Button, Typography, Box, Container } from "@mui/material";
+import { Button, Typography, Box, Stack } from "@mui/material";
 
 export const Home = () => {
   const navigate = useNavigate();
@@ -19,17 +19,20 @@ export const Home = () => {
   };
 
   return (
-    <Container
-      maxWidth="sm"
+    <Box
       sx={{
-        textAlign: "center",
-        mt: 4,
-        padding: 4,
+        maxWidth: 700,
+        width: "100%",
+        mx: "auto",
+        mt: 1,
+        p: 3,
+        boxShadow: 3,
         borderRadius: 2,
-        boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
-        bgcolor: "#f5f5f5",
+        backgroundColor: "#fff",
+        textAlign: "center",
       }}
     >
+      {/* Encabezado de bienvenida */}
       <Typography variant="h4" gutterBottom>
         Bienvenido a Home
       </Typography>
@@ -40,7 +43,7 @@ export const Home = () => {
       </Typography>
 
       {/* Botón para cerrar sesión */}
-      <Box mt={4}>
+      <Stack spacing={2} mt={3}>
         <Button
           variant="contained"
           color="primary"
@@ -55,8 +58,7 @@ export const Home = () => {
         >
           Cerrar Sesión
         </Button>
-      </Box>
-    </Container>
+      </Stack>
+    </Box>
   );
 };
-
